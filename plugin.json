@@ -1,0 +1,42 @@
+{
+  "id": "nodebb-plugin-emoji-extended",
+  "name": "NodeBB Emoji Extended",
+  "description": "Emoji for NodeBB with emoticon-mapping and text-completion :)\nKnown Conflicts: nodebb-plugin-emoji",
+  "url": "https://github.com/frissdiegurke/nodebb-plugin-emoji-extended",
+  "library": "./index.js",
+  "staticDirs": {
+    "images": "./emoji"
+  },
+  "less": [
+    "./styles/style.less"
+  ],
+  "scripts": [
+    "./client-scripts/lib/jquery.textcomplete.min.js",
+    "./client-scripts/emoji-textcomplete.js"
+  ],
+  "templates": "./templates",
+  "hooks": [
+    {
+      "hook": "filter:parse.raw",
+      "method": "parse",
+      "priority": 9
+    },
+    {
+      "hook": "filter:parse.post",
+      "method": "parseDataContent",
+      "priority": 9
+    },
+    {
+      "hook": "filter:admin.header.build",
+      "method": "adminBuild"
+    },
+    {
+      "hook": "filter:composer.help",
+      "method": "composerHelp"
+    },
+    {
+      "hook": "static:app.load",
+      "method": "appLoad"
+    }
+  ]
+}
