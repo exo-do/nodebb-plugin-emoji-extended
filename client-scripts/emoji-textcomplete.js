@@ -9,7 +9,7 @@
             }, cb), null
         },
         updated: !1,
-        path: "" + RELATIVE_PATH + "/plugins/nodebb-plugin-emoji-extended/images/",
+        path: "" + RELATIVE_PATH + "/plugins/nodebb-plugin-exodo-emojis/images/",
         getPath: function(name) {
             return null != name ? "" + this.path + encodeURIComponent(name.toLowerCase()) + ".gif" : this.path
         },
