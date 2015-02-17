@@ -1,20 +1,44 @@
 .emoji {
-  display: inline-block !important;
-  position: relative;
+    display: inline-block !important;
+    position: relative;
 }
 
 .emoji-link {
-/*
-  width: 33%;
-  max-width: 250px;
-  min-width: 240px;
-*/
-  cursor: pointer;
-  display: inline-table;
-  white-space: nowrap;
+    cursor: pointer;
+    display: inline-table;
+    white-space: nowrap;
+    padding: 5px 0px;
+    width: 10%;
 }
 
 .emoji-dialog > .modal-dialog {
-  width: auto;
-  max-width: 1048px;
+    width: auto;
+    max-width: 1048px;
+}
+
+.textcomplete-wrapper {
+    
+    .dropdown-menu {
+        
+        padding: 0 !important;
+        min-width: auto;
+        white-space: nowrap;
+        
+        .textcomplete-item {
+            
+            > a {
+                
+                display: block !important;
+                text-align: center;
+                
+                div {
+                    line-height: 50px;
+                }
+
+            }
+            
+            display: inline-block;
+
+        }
+    }
 }

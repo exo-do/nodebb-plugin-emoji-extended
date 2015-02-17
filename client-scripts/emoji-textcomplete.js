@@ -1,8 +1,6 @@
 ! function() {
-    var defaultLists, defaultUsage, exports;
-    return defaultLists = {
-        General: ["abrazo","elrisas","esdios","facepalm","gaydude","llorona","loco4","nono1","roto2","roto2nuse","roto2rie","sisi1","sisi3","monoloco","mani","vomiton","sinfotos","zplatano2","rolleyes","conejito","qmeparto","trolldeltesoro","gey","sherlock","rolleye","timidos","kotaru","xmnl","qtedoy","baila","mono","dale2","zpalomita","lloron","roto2gaydude","nusenuse","flipa","jajano","sisi2","copa2","aplauso","roto2gay","number1","zpc","sisi","roto2palm","roto2cafe","nono","saludo","hello","cantarin","psyduck","babeando","rota2","loco3","omg","campeon2","risukis","lupie","mola","roto4","rotoflanders","qmiedo","loel","susurro","shit","eing","mgalletas","palo","exodin","elboinas","roto2qtemeto","mad"]
-    }, defaultUsage = !0, exports = window.emojiExtended = {
+    var defaultUsage, exports;
+    return defaultUsage = false, exports = window.emojiExtended = {
         addCompletion: function(object, cb) {
             return this.ready.then(function(addTextComplete) {
                 return addTextComplete(object, cb)
@@ -44,7 +42,7 @@
                         return "$2:" + value.toLowerCase() + ": "
                     },
                     template: function(value) {
-                        return "<img class='emoji emoji-extended img-responsive' src='" + exports.getPath(value) + "' /> " + value
+                        return "<div><img class='emoji emoji-extended img-responsive' src='" + exports.getPath(value) + "' /></div> <span>:" + value + ":</span>"
                     },
                     maxCount: maxCount,
                     index: 1
@@ -57,8 +55,8 @@
         return exports.addCompletion($("#chat-message-input", modal))
     }), $(window).trigger("emoji-extended:initialized", exports), exports.ready.then(function() {
         var lists;
-        return lists = defaultUsage ? defaultLists : {
-            smileys: exports.list
+        return lists = {
+            Iconos: exports.list
         }, require(["composer", "composer/controls"], function(composer, controls) {
             return composer.addButton("fa fa-smile-o", function(area, sS, sE) {
                 var dialog, dialogContent, first, getLink, item, items, key, _i, _len;
@@ -73,7 +71,7 @@
                     first = !1
                 }
                 return dialog = bootbox.dialog({
-                    title: "Emoticonos",
+                    title: "",
                     message: dialogContent,
                     onEscape: function() {}
                 }), dialog.addClass("emoji-dialog")
