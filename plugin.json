@@ -1,8 +1,8 @@
 {
-  "id": "nodebb-plugin-exodo-emojis",
-  "name": "NodeBB Exodo Emojis",
-  "description": "Emoticonos para Exo.do basado en nodebb-plugin-emoji-extended",
-  "url": "https://github.com/NyushaDEV",
+  "id": "nodebb-plugin-emoji-extended",
+  "name": "NodeBB Emoji Extended",
+  "description": "Emoji for NodeBB with emoticon-mapping and text-completion :)\nKnown Conflicts: nodebb-plugin-emoji",
+  "url": "https://github.com/frissdiegurke/nodebb-plugin-emoji-extended",
   "library": "./index.js",
   "staticDirs": {
     "images": "./emoji"
@@ -11,7 +11,6 @@
     "./styles/style.less"
   ],
   "scripts": [
-    "./client-scripts/lib/jquery.textcomplete.min.js",
     "./client-scripts/emoji-textcomplete.js"
   ],
   "templates": "./templates",
@@ -33,6 +32,16 @@
     {
       "hook": "filter:composer.help",
       "method": "composerHelp"
+    },
+    {
+      "hook": "filter:composer.formatting",
+      "method": "composerFormatting",
+      "priority": 15
+    },
+    {
+      "hook": "action:email.send",
+      "method": "email",
+      "priority": 5
     },
     {
       "hook": "static:app.load",

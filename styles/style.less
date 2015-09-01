@@ -1,14 +1,54 @@
-.emoji {
-    display: inline-block !important;
-    position: relative;
+
+/*
+.emoji, .categories>li .content img.emoji {
+  height: auto;
+  width: auto;
+  display: inline-block;
+  position: relative;
+  max-height: 32px;
+  max-width: 32px;
+}
+
+.categories>li .content img.emoji {
+  margin-right: 0;
 }
 
 .emoji-link {
+  width: 33%;
+  max-width: 250px;
+  min-width: 240px;
+  cursor: pointer;
+  display: inline-table;
+  white-space: nowrap;
+}
+
+.emoji-dialog > .modal-dialog {
+  width: auto;
+  max-width: 1048px;
+
+  .emoji-tab {
+    cursor: pointer;
+    &.active {
+      cursor: default;
+    }
+  }
+}
+*/
+
+
+.emoji {
+    display: inline-block !important;
+    position: relative;
+	max-width: 100%;
+}
+
+.emoji-link {
+	width: 16%;
     cursor: pointer;
     display: inline-table;
     white-space: nowrap;
-    padding: 5px 0px;
-    width: 10%;
+    
+	//padding: 5px 0px;
 }
 
 .emoji-dialog > .modal-dialog {
@@ -23,7 +63,7 @@
         padding: 0 !important;
         min-width: auto;
         white-space: nowrap;
-        
+		//margin-top: -50px;
         .textcomplete-item {
             
             > a {

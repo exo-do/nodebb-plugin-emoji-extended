@@ -1,11 +1,11 @@
 {
   "name": "nodebb-plugin-exodo-emojis",
-  "version": "0.4.1-3",
-  "description": "Emoticonos para Exo.do basado en nodebb-plugin-emoji-extended",
+  "version": "0.4.9",
+  "description": "Emoji for NodeBB with emoticon-mapping and text-completion :)\nKnown Conflicts: nodebb-plugin-emoji",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/frissdiegurke/nodebb-plugin-emoji-extended"
+    "url": "git+https://github.com/frissdiegurke/nodebb-plugin-emoji-extended.git"
   },
   "keywords": [
     "nodebb",
@@ -19,32 +19,16 @@
     "emoji-parser": "~0.1.1"
   },
   "nbbpm": {
-    "compatibility": "^0.6.0"
+    "compatibility": "^0.7.2"
   },
+  "readme": "# nodebb-plugin-emoji-extended\n\n## Features\n\n + Emoticons as defined at [Emoji cheat sheet](http://www.emoji-cheat-sheet.com)\n + Emoticons get updated on each server-startup (and each 24d)\n + Mapping of texts like `:)`, `;)`, etc.\n + [Autocomplete for Textarea](https://github.com/yuku-t/jquery-textcomplete) of emoticons (not for mapped ones)\n + Code-blocks get ignored (markdown-syntax)\n + API to add textcomplete to other fields (by default parsing posts and chat)\n\n## Installation\n\nThe preferred way of installing plugins is via your NodeBB Admin-CP since this ensures the compatibility of plugins with\nyou NodeBB version.\n\nPlease ensure you **don't have `nodebb-plugin-emoji` enabled** since this causes parsing-conflicts.\n\n### Deprecated\n\n    npm install nodebb-plugin-emoji-extended\n\n## Client-Side API (usable by other plugins)\n\nOn client-side you have access to the `window.emojiExtended` object that provides the following attributes:\n\n * `[Array] list` A list of all available emoji-names.\n * `[Boolean] updated` Whether `emoji-extended:updated` has been triggered yet (see below).\n * `[String] path` The folder-URL that contains all image-files.\n * `[String] version` The version-string of emoji-extended.\n * `[String] getPath(name)` Returns the URL of the image that shows the emoji of given name (case-insensitive).\n * `[Promise] ready` A promise that gets resolved once emoji-extended got initialized. Gets passed a function\n   `addTextComplete(target, callback)`.\n * `[null] addCompletion(target, callback)` An alias for `ready` with forwarding parameters to resolved\n   `addTextComplete` function.\n\nEvents called on `window`:\n\n * `emoji-extended:initialized` Emoji-Extended has been initialized, `window.emojiExtended` got created.\n * `emoji-extended:updated` Data got retrieved from server (`window.emojiExtended.list` and\n     `window.emojiExtended.version` got updated)\n\nIn conclusion to use the API of emoji-extended the client-side code within your plugin may look like this:\n\n    function doSth(emojiExtended) {\n      // emoji-extended is initialized, you may use the API here\n    }\n    \n    if (typeof window.emojiExtended !== 'undefined')\n      doSth(window.emojiExtended);\n    else\n      $(window).one('emoji-extended:initialized', doSth);\n\n\n## Credits\n\n[emoji-parser](https://github.com/frissdiegurke/emoji-parser)\n\n[nodebb-plugin-emoji](https://github.com/julianlam/nodebb-plugin-emoji)\n\n[Autocomplete for Textarea](https://github.com/yuku-t/jquery-textcomplete)",
+  "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/frissdiegurke/nodebb-plugin-emoji-extended/issues"
   },
-  "homepage": "https://github.com/frissdiegurke/nodebb-plugin-emoji-extended",
-  "_id": "nodebb-plugin-emoji-extended@0.4.1-3",
-  "scripts": {},
-  "_shasum": "0c2eef29f0e8826fa97d658ed02b83b0334e8fa0",
-  "_from": "nodebb-plugin-emoji-extended@",
-  "_npmVersion": "2.1.9",
-  "_nodeVersion": "0.10.33",
-  "_npmUser": {
-    "name": "frissdiegurke",
-    "email": "frissdiegurke@hotmail.com"
-  },
-  "maintainers": [
-    {
-      "name": "frissdiegurke",
-      "email": "frissdiegurke@hotmail.com"
-    }
-  ],
-  "dist": {
-    "shasum": "0c2eef29f0e8826fa97d658ed02b83b0334e8fa0",
-    "tarball": "http://registry.npmjs.org/nodebb-plugin-emoji-extended/-/nodebb-plugin-emoji-extended-0.4.1-3.tgz"
-  },
-  "directories": {},
-  "_resolved": "https://registry.npmjs.org/nodebb-plugin-emoji-extended/-/nodebb-plugin-emoji-extended-0.4.1-3.tgz"
+  "homepage": "https://github.com/frissdiegurke/nodebb-plugin-emoji-extended#readme",
+  "_id": "nodebb-plugin-emoji-extended@0.4.9",
+  "_shasum": "4962ad60453638cc16874d5c9f4a358b8131c2e6",
+  "_resolved": "https://registry.npmjs.org/nodebb-plugin-emoji-extended/-/nodebb-plugin-emoji-extended-0.4.9.tgz",
+  "_from": "https://registry.npmjs.org/nodebb-plugin-emoji-extended/-/nodebb-plugin-emoji-extended-0.4.9.tgz"
 }
