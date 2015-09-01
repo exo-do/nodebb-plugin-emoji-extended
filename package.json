@@ -1,5 +1,5 @@
 {
-  "name": "nodebb-plugin-exodo-emojis",
+  "name": "nodebb-plugin-emoji-extended",
   "version": "0.4.9",
   "description": "Emoji for NodeBB with emoticon-mapping and text-completion :)\nKnown Conflicts: nodebb-plugin-emoji",
   "main": "index.js",
